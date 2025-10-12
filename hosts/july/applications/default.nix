@@ -3,7 +3,7 @@
     ./bots
     ./databases
     ./monitoring
-    ./matrix.nix
+    # ./matrix.nix
     ./reverse-proxy.nix
     ./immich
 
@@ -14,14 +14,11 @@
     ./rmbg-server.nix
 
     ./static.nix
-    ./emmalink.nix
+    # ./emmalink.nix
 
     ./minecraft
     ./teamspeak.nix
 
-    ./home-assistant.nix
-    ./paperless.nix
-
-    ./bak-kk
+    ./home
   ];
 }

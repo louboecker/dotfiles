@@ -8,6 +8,7 @@
     # ./bak-kk.nix
     # ./ljs-lsa.nix
     # ./uwu.nix
-    ./ljs.nix
+    # ./ljs.nix
+    ./etog.nix
   ];
 }

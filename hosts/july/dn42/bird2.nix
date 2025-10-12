@@ -8,8 +8,10 @@ let script = pkgs.writeShellScriptBin "update-roa" ''
     '';
 in
 {
-  services.bird2 = {
+  services.bird = {
     enable = true;
+
+    package = pkgs.bird2;
 
     checkConfig = false;
 
