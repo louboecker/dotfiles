@@ -10,5 +10,6 @@
     # ./uwu.nix
     # ./ljs.nix
     ./etog.nix
+    ./tweakistan.nix
   ];
 }

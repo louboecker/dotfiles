@@ -3,7 +3,7 @@
     ./bots
     ./databases
     ./monitoring
-    # ./matrix.nix
+    ./matrix.nix
     ./reverse-proxy.nix
     ./immich
 

@@ -1,7 +1,8 @@
 let
   userKeys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIh+tAKie4OOkzxIwprEcQHiaL4ifkJKcSeN3bytV1rZ stckoverflw@gmail.com" # desktop
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPiBYp+pjF/3Q6deVfH4uMqYg6y9YbK29qZ6kNyWLxil stckoverflw@gmail.com" # laptop
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIh+tAKie4OOkzxIwprEcQHiaL4ifkJKcSeN3bytV1rZ" # desktop
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPiBYp+pjF/3Q6deVfH4uMqYg6y9YbK29qZ6kNyWLxil" # laptop
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF9JOPOwuT4iHyB7x9OOsLmQMA8sLFPVisuvIyRmvJe5" # laptop
   ];
 
   systemKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII8+tB44MHGTih2DlHeNpnEYE2ah6/OS6lwcJQTGwrae root@nixos";
@@ -18,8 +19,9 @@ in {
 
   "secrets/ris-tokens.age".publicKeys = allKeys;
 
-  "secrets/matrix-secret.age".publicKeys = allKeys;
-  "secrets/syncv3_secret.age".publicKeys = allKeys;
+  # "secrets/matrix-secret.age".publicKeys = allKeys;
+  # "secrets/syncv3_secret.age".publicKeys = allKeys;
+  "secrets/matrix/tuwunel-config.age".publicKeys = allKeys;
 
   "secrets/authentik-redis-password.age".publicKeys = allKeys;
   "secrets/authentik-secrets.age".publicKeys = allKeys;

@@ -1,6 +1,7 @@
 {
   pkgs,
   self,
+  config,
   ...
 }: let
   serverName = "boecker.dev";
@@ -18,8 +19,8 @@
     return 200 '${builtins.toJSON data}';
   '';
 in {
-  imports = [
-    "${self.inputs.nixpkgs-unstable}/nixos/modules/services/matrix/conduwuit.nix"
+  systemd.tmpfiles.rules = [
+    "d /var/lib/tuwunel 0755 emma users"
   ];
 
   services.nginx.virtualHosts = {
@@ -32,7 +33,7 @@ in {
     };
     "${matrixDomain}" = {
       locations."~ ^(/_matrix|/_synapse/client)" = {
-        proxyPass = "http://[::1]:6167";
+        proxyPass = "http://[::1]:8448";
         extraConfig = ''
           client_max_body_size 50M;
           proxy_http_version 1.1;
@@ -42,40 +43,60 @@ in {
           proxy_set_header Host $host;
         '';
       };
-      locations."~ ^/(client/|_matrix/client/unstable/org.matrix.msc3575/sync)" = {
-        proxyPass = "http://localhost:6168";
-        extraConfig = ''
-          proxy_set_header X-Forwarded-For $remote_addr;
-          proxy_set_header X-Forwarded-Proto $scheme;
-          proxy_set_header Host $host;
-        '';
-      };
+      # locations."~ ^/(client/|_matrix/client/unstable/org.matrix.msc3575/sync)" = {
+      #   proxyPass = "http://localhost:6168";
+      #   extraConfig = ''
+      #     proxy_set_header X-Forwarded-For $remote_addr;
+      #     proxy_set_header X-Forwarded-Proto $scheme;
+      #     proxy_set_header Host $host;
+      #   '';
+      # };
     };
   };
 
-  services.conduwuit = {
-    enable = true;
+  age.secrets.tuwunel-config.file = "${self}/secrets/matrix/tuwunel-config.age";
 
-    package = self.inputs.conduwuit.packages.x86_64-linux.default;
+  virtualisation.oci-containers.containers.tuwunel = {
+    image = "jevolk/tuwunel:latest";
+    pull = "newer";
 
-    settings.global = {
-      server_name = serverName;
-      port = [
-        6167
-      ];
-      max_request_size = 50000000;
-      database_backend = "rocksdb";
-      allow_registration = false;
-      allow_federation = true;
-      allow_encryption = true;
-      trusted_servers = [ "matrix.org" "mozilla.org" ];
-    };
+    cmd = ["--console"];
+
+    environment = {
+      TUWUNEL_CONFIG="/etc/tuwunel.toml";
+    }; 
+
+    volumes = [
+      "/var/lib/tuwunel:/var/lib/tuwunel"
+      "${config.age.secrets.tuwunel-config.path}:/etc/tuwunel.toml"
+    ];
+
+    extraOptions = ["--network=host" "--tty"];
   };
 
-  systemd.services.conduit = {
-    after = ["network-online.target"];
-    wants = ["network-online.target"];
-  };
+  # services.conduwuit = {
+  #   enable = true;
+
+  #   package = self.inputs.conduwuit.packages.x86_64-linux.default;
+
+  #   settings.global = {
+  #     server_name = serverName;
+  #     port = [
+  #       6167
+  #     ];
+  #     max_request_size = 50000000;
+  #     database_backend = "rocksdb";
+  #     allow_registration = false;
+  #     allow_federation = true;
+  #     allow_encryption = true;
+  #     trusted_servers = [ "matrix.org" "mozilla.org" ];
+  #   };
+  # };
+
+  # systemd.services.conduit = {
+  #   after = ["network-online.target"];
+  #   wants = ["network-online.target"];
+  # };
 
   # age.secrets.syncv3_secret.file = "${self}/secrets/syncv3_secret.age";
 
@@ -100,7 +121,7 @@ in {
   #   wants = ["postgresql.service" "matrix-conduit.service"];
   # };
 
-  services.postgresql = {
-    ensureDatabases = ["syncv3"];
-  };
+  # services.postgresql = {
+  #   ensureDatabases = ["syncv3"];
+  # };
 }

@@ -1,22 +1,31 @@
 { ... }: {
   systemd.tmpfiles.rules = [
-    "d /var/lib/minecraft-etog 0755 etog users"
+    "d /var/lib/tweakistan 0755 valle users"
   ];
 
-  users.users.etog = {
+  users.users.valle = {
     isNormalUser = true;
     linger = true;
     extraGroups = [
       
     ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGzB9z7/VeQvImaojGhoqUnY9qGphmTHpdzXFEkVZk+l"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINQMSHWPTtZ7CM2yv0Feo3mtI8xGUPLJywKE1NRScvLQ"
     ];
   };
 
-  systemd.services.podman-minecraft-etog.serviceConfig.Delegate = "yes";
+  systemd.services.podman-tweakistan.serviceConfig.Delegate = "yes";
 
-  virtualisation.oci-containers.containers.minecraft-etog = {
+  networking.firewall.allowedTCPPorts = [
+    25566
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    25566
+    24455
+  ];
+
+  virtualisation.oci-containers.containers.tweakistan = {
     image = "itzg/minecraft-server:java25";
     pull = "newer";
 
@@ -24,14 +33,14 @@
       EULA="TRUE";
       TYPE="FABRIC";
       VERSION="1.21.10";
-      SERVER_PORT = "25565";
-      RCON_PORT = "25722";
+      SERVER_PORT = "25566";
+      RCON_PORT = "25766";
       MOTD = "";
       SPAWN_PROTECTION="0";
       VIEW_DISTANCE="22";
       SIMULATION_DISTANCE="6";
       DISABLE_HEALTHCHECK = "true";
-      ICON="https://cdn.discordapp.com/attachments/817055970588098590/1428828555457855558/origin-of-this-image-v0-mezrnhfpgz4c1.webp?ex=68f3ebc9&is=68f29a49&hm=ae25cf6610524054e613a91679b96e23f2fab237757cffdcc3c6f0df23bfaf26";
+      ICON="https://static.boecker.dev/chicken_jockey.jpeg";
       MEMORY="6G";
       # PLUGINS=''
       #   https://github.com/Cubxity/UnifiedMetrics/releases/download/v0.3.x-SNAPSHOT/unifiedmetrics-platform-bukkit-0.3.10-SNAPSHOT.jar
@@ -67,10 +76,10 @@
     };
 
     user = "0:0";
-    podman.user = "etog";
+    podman.user = "valle";
 
     volumes = [
-      "/var/lib/minecraft-etog:/data/"
+      "/var/lib/tweakistan:/data/"
     ];
 
     extraOptions = ["--network=host"];
@@ -78,21 +87,28 @@
 
   services.prometheus.scrapeConfigs = [
     {
-      job_name = "minecraft";
+      job_name = "tweakistan";
       static_configs = [
         {
-          targets = ["localhost:9100"];
+          targets = ["localhost:9101"];
           labels = {
-            "server"="etog.boecker.dev";
+            "server"="tweakistan.boecker.dev";
           };
         }
       ];
     }
   ];
 
-  services.nginx.virtualHosts."etog.boecker.dev" = {
+  services.nginx.virtualHosts."tweakistan.boecker.dev" = {
     locations."/" = {
-      proxyPass = "http://localhost:8100";
+      proxyPass = "http://localhost:8101";
+      proxyWebsockets = true; 
+    };
+  };
+
+  services.nginx.virtualHosts."tweakistan.curllz.com" = {
+    locations."/" = {
+      proxyPass = "http://localhost:8101";
       proxyWebsockets = true; 
     };
   };

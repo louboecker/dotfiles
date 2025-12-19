@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -29,9 +29,6 @@
     railboard-api = {
       url = "github:StckOverflw/railboard-api";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    conduwuit = {
-      url = "github:girlbossceo/conduwuit/main";
     };
     emmalink = {
       url = "github:emmaboecker/emmalink";

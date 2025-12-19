@@ -51,8 +51,6 @@
   };
 
   services.nginx.virtualHosts."api.rail.boecker.dev" = {
-    serverAliases = ["api.rail.stckoverflw.net"];
-
     locations."/" = {
       proxyPass = "http://localhost:6969";
 
