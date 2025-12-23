@@ -4,6 +4,7 @@
   imports =
     [
       ./hosts/river
+      ./common.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

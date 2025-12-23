@@ -4,6 +4,7 @@
 }: {
   imports = [
     ./hosts/harper
+    ./common.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

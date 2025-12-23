@@ -11,6 +11,7 @@
     "${modulesPath}/profiles/headless.nix"
     disko.nixosModules.default
     ./hosts/july
+    ./common.nix
   ];
 
   environment.systemPackages = with pkgs; [
