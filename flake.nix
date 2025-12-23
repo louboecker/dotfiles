@@ -82,6 +82,10 @@
           agenix.nixosModules.default
         ];
       };
+      river = nixpkgs.lib.nixosSystem {
+        specialArgs = attrs;
+        modules = [ ./river.nix ];
+      };
     };
     deploy.sshOpts = ["-t"];
     deploy.nodes.july = {
