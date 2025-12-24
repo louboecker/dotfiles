@@ -42,6 +42,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     disko,
     nixos-generators,
     deploy-rs,
@@ -82,7 +83,7 @@
           agenix.nixosModules.default
         ];
       };
-      river = nixpkgs.lib.nixosSystem {
+      river = nixpkgs-unstable.lib.nixosSystem {
         specialArgs = attrs;
         modules = [ ./river.nix ];
       };

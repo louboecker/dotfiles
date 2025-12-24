@@ -3,5 +3,6 @@
     firefox
     discord
     spotify
+    thunderbird
   ];
 }
