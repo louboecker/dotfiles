@@ -20,6 +20,9 @@
     useXkbConfig = true; 
   };
 
+  services.gnome.gnome-keyring.enable = false;
+  programs.ssh.startAgent = true;
+
   services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
 
@@ -35,6 +38,8 @@
      enable = true;
      pulse.enable = true;
   };
+
+  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];

@@ -1,6 +1,6 @@
 { ... }: {
   services.surrealdb = {
-    enable = true;
+    enable = false;
     port = 8009;
     extraFlags = [
         "--allow-all"

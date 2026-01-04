@@ -14,10 +14,8 @@
     ./rmbg-server.nix
 
     ./static.nix
-    # ./emmalink.nix
 
     ./minecraft
-    ./teamspeak.nix
 
     ./home
   ];

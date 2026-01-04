@@ -2,6 +2,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    colmena = {
+      url = "github:zhaofengli/colmena";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,10 +15,6 @@
     };
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
@@ -30,13 +29,6 @@
       url = "github:StckOverflw/railboard-api";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    emmalink = {
-      url = "github:emmaboecker/emmalink";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    rmbg-server = {
-      url = "github:emmaboecker/rmbg-server";
-    };
   };
 
   outputs = {
@@ -45,67 +37,62 @@
     nixpkgs-unstable,
     disko,
     nixos-generators,
-    deploy-rs,
     agenix,
     home-manager,
+    colmena,
     ...
   } @ attrs: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
-    deployPkgs = import nixpkgs {
-      inherit system;
-      overlays = [
-        deploy-rs.overlay
-        (self: super: {
-          deploy-rs = {
-            inherit (pkgs) deploy-rs;
-            lib = super.deploy-rs.lib;
-          };
-        })
-      ];
-    };
   in {
-    nixosConfigurations = {
-      july = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+    colmenaHive = colmena.lib.makeHive {
+      meta = {
+        nixpkgs = import nixpkgs-unstable {
+          inherit system;
+          overlays = [];
+        };
         specialArgs = attrs;
-        modules = [
+        nodeNixpkgs = {
+          july = import nixpkgs {
+            inherit system;
+            overlays = [];
+          };
+        };
+      };
+      july = {
+        imports = [
           ./july.nix
           agenix.nixosModules.default
         ];
+        deployment = {
+          targetUser = "emma";
+          targetHost = "boecker.dev";
+          targetPort = 22;
+          buildOnTarget = true;
+        };
+        nix.registry.nixpkgs.flake = nixpkgs;
       };
-      harper = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = attrs;
-        modules = [
+      river = {
+        imports = [ ./river.nix ];
+        nix.registry.nixpkgs.flake = nixpkgs-unstable;
+        deployment = {
+          allowLocalDeployment = true;
+        };
+      };
+      harper = {
+        imports = [
           ./harper.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];
-      };
-      river = nixpkgs-unstable.lib.nixosSystem {
-        specialArgs = attrs;
-        modules = [ ./river.nix ];
-      };
-    };
-    deploy.sshOpts = ["-t"];
-    deploy.nodes.july = {
-      hostname = "152.53.65.128";
-      sshUser = "emma";
-
-      # required for sudo pw to work
-      magicRollback = false;
-
-      autoRollback = true;
-
-      profiles.system = {
-        user = "root";
-        path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.july;
+        nix.registry.nixpkgs.flake = nixpkgs-unstable;
+        deployment = {
+          allowLocalDeployment = true;
+        };
       };
     };
-    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     devShells.x86_64-linux.default = pkgs.mkShell {
-      buildInputs = [agenix.packages.x86_64-linux.default];
+      buildInputs = [agenix.packages.x86_64-linux.default colmena.packages.x86_64-linux.colmena];
     };
     formatter.x86_64-linux = pkgs.alejandra;
   };
