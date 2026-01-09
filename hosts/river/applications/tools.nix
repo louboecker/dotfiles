@@ -3,6 +3,9 @@
     pulsemeeter
     nextcloud-client
     scrcpy
-    xdg-utils
-  ];
+    xdg-utils 
+    qpwgraph
+  ] ++ (with pkgs.kdePackages; [
+      
+  ]);
 }
