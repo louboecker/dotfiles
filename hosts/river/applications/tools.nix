@@ -5,6 +5,7 @@
     scrcpy
     xdg-utils 
     qpwgraph
+    appimage-run
   ] ++ (with pkgs.kdePackages; [
       
   ]);

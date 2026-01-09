@@ -8,6 +8,6 @@
 
     telegram-desktop
     signal-desktop
-    cinny-desktop
+    # cinny-desktop
   ];
 }

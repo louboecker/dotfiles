@@ -8,6 +8,10 @@
     "nvidia-settings"
     "nvidia-persistenced"
   ];
+
+  nixpkgs.config.allowBrokenPredicate = pkg: builtins.elem (lib.getName pkg) [
+    "cinny-desktop"
+  ];
   
   imports = [
     ./applications.nix
