@@ -1,5 +1,5 @@
 {...}: {
   imports = [
-    ./iws-rs.nix
+    
   ];
 }
