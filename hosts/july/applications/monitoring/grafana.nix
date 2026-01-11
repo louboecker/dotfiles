@@ -21,21 +21,23 @@
     enable = true;
     settings = {
       auth = {
-        disable_login_form = true;
-        signout_redirect_url = "https://sso.boecker.dev/if/session-end/grafana/";
+        disable_login_form = false;
       };
       "auth.generic_oauth" = {
         enabled = true;
-        name = "Authentik";
+        name = "Kanidm";
         auto_login = true;
-        client_id = "gDkmJmAJbzewp42t4CAafUcU9KbHuRV6xl21GlPp";
+        client_id = "grafana";
         client_secret = "$__file{${config.age.secrets.grafana-oauth-secret.path}}";
-        scopes = "profile email openid";
-        auth_url = "https://sso.boecker.dev/application/o/authorize/";
-        token_url = "https://sso.boecker.dev/application/o/token/";
-        api_url = "https://sso.boecker.dev/application/o/userinfo/";
+        scopes = "profile email openid groups";
+        auth_url = "https://idm.boecker.dev/ui/oauth2";
+        token_url = "https://idm.boecker.dev/oauth2/token";
+        api_url = "https://idm.boecker.dev/oauth2/openid/grafana/userinfo";
+        use_pkce = true;
+        login_attribute_path = "preferred_username";
+        name_attribute_path = "nickname";
 
-        role_attribute_path = "contains(groups[*], 'grafana-admin') && 'GrafanaAdmin' || contains(groups[*], 'grafana-editor') && 'Editor' || 'Viewer'";
+        role_attribute_path = "contains(grafana_role[*], 'GrafanaAdmin') && 'GrafanaAdmin' || contains(grafana_role[*], 'Admin') && 'Admin' || contains(grafana_role[*], 'Editor') && 'Editor' || 'Viewer'";
         allow_assign_grafana_admin = true;
       };
 

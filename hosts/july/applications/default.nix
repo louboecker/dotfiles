@@ -7,7 +7,7 @@
     ./reverse-proxy.nix
     ./immich
 
-    ./authentik.nix
+    ./kanidm.nix
 
     ./nextcloud.nix
     ./railboard-api.nix
