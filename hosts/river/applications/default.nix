@@ -7,6 +7,7 @@
     "nvidia-x11"
     "nvidia-settings"
     "nvidia-persistenced"
+    "vscode"
   ];
 
   nixpkgs.config.allowBrokenPredicate = pkg: builtins.elem (lib.getName pkg) [
