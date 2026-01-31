@@ -2,7 +2,13 @@
   environment.systemPackages = with pkgs; [
     firefox
     ungoogled-chromium
-    discord
+    (discord.override {
+      withVencord = true;
+    })
+    (discord-ptb.override {
+      withVencord = true;
+    })
+    vesktop
     spotify
     thunderbird
 

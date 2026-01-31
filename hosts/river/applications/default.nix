@@ -1,6 +1,7 @@
 { lib, ...}: {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
+    "discord-ptb"
     "spotify"
     "steam"
     "steam-unwrapped"
@@ -8,6 +9,7 @@
     "nvidia-settings"
     "nvidia-persistenced"
     "vscode"
+    "idea"  
   ];
 
   nixpkgs.config.allowBrokenPredicate = pkg: builtins.elem (lib.getName pkg) [

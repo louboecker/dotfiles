@@ -70,6 +70,11 @@
         invview
         vanish
         enhanced-groups
+        distanthorizons
+        journeymap
+        viafabric
+        viaversion
+        viabackwards
       '';
       MODRINTH_ALLOWED_VERSION_TYPE="alpha";
       UID="0";

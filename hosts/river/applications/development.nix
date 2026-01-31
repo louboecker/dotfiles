@@ -10,5 +10,6 @@
     jujutsu
     pnpm
     nodejs_25
+    jetbrains.idea
   ];
 }
