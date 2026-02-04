@@ -14,19 +14,16 @@
 
     nftables = {
       enable = true;
-      tables.forwarding = {
-        family = "inet";
-        content = ''
-          chain forward {
-            type filter hook forward priority 0; policy drop;
+      # tables.forwarding = {
+      #   family = "inet";
+      #   content = ''
+      #     chain forward {
+      #       type filter hook forward priority 0; policy drop;
 
-            iifname "dn42n*" oifname "dn42n*" accept
-            iifname "dn42n*" oifname "wg0" tcp dport 25565 accept
-            iifname "wg0" accept
-            ct state { established, related } accept
-          }
-        '';
-      };
+      #       ct state { established, related } accept
+      #     }
+      #   '';
+      # };
     };
     
     firewall.allowedTCPPorts = [
@@ -99,33 +96,33 @@
       "8.8.4.4"
     ];
 
-    wireguard.interfaces = {
-      wg0 = {
-        listenPort = 51820;
-        allowedIPsAsRoutes = false;
-        privateKeyFile = config.age.secrets.river-private.path; # eI5GGnHzyY/9DKc73Ix0uCWmpOtZLo7h0gJcI2HiQjc=
+    # wireguard.interfaces = {
+    #   wg0 = {
+    #     listenPort = 51820;
+    #     allowedIPsAsRoutes = false;
+    #     privateKeyFile = config.age.secrets.river-private.path; # eI5GGnHzyY/9DKc73Ix0uCWmpOtZLo7h0gJcI2HiQjc=
 
-        ips = [
-          "fd42:e99e:1f58:0127::1/64"
-          "172.23.181.161/24"
-          "10.161.0.1/24"
-        ];
+    #     ips = [
+    #       "fd42:e99e:1f58:0127::1/64"
+    #       "172.23.181.161/24"
+    #       "10.161.0.1/24"
+    #     ];
 
-        peers = [
-          { # desktop
-            name = "river";
-            publicKey = "TKnru4+eIKssDDOlrpQKtrWOB7Cf+4mj3il2SevqxBo=";
-            allowedIPs = [ "fd42:e99e:1f58:0127::2/128" "172.23.181.162/32" "10.161.0.2/32" ];
-            persistentKeepalive = 25;
-          }
-          { # note 10+
-            name = "note";
-            publicKey = "4Fn/RsVriuvfDBo/c8QyjrXW19FRrATYbitptC+ibT8=";
-            allowedIPs = [ "fd42:e99e:1f58:0127::3/128" "172.23.181.163/32" "10.161.0.3/32" ];
-            persistentKeepalive = 25;
-          }
-        ];
-      };
+    #     peers = [
+    #       { # desktop
+    #         name = "river";
+    #         publicKey = "TKnru4+eIKssDDOlrpQKtrWOB7Cf+4mj3il2SevqxBo=";
+    #         allowedIPs = [ "fd42:e99e:1f58:0127::2/128" "172.23.181.162/32" "10.161.0.2/32" ];
+    #         persistentKeepalive = 25;
+    #       }
+    #       { # note 10+
+    #         name = "note";
+    #         publicKey = "4Fn/RsVriuvfDBo/c8QyjrXW19FRrATYbitptC+ibT8=";
+    #         allowedIPs = [ "fd42:e99e:1f58:0127::3/128" "172.23.181.163/32" "10.161.0.3/32" ];
+    #         persistentKeepalive = 25;
+    #       }
+    #     ];
+    #   };
       # wg1 = {
       #   allowedIPsAsRoutes = false;
       #   privateKeyFile = config.age.secrets.fritz-private.path;
@@ -145,7 +142,7 @@
       #     }
       #   ];
       # };
-    };
+    # };
   };
 
   age.secrets.tailscale-auth-key = {
@@ -164,8 +161,8 @@
     useRoutingFeatures = "server";
   };
 
-  age.secrets.river-private.file = "${self}/secrets/wireguard/river-private.age";
-  age.secrets.fritz-private.file = "${self}/secrets/wireguard/fritz-private.age";
+  # age.secrets.river-private.file = "${self}/secrets/wireguard/river-private.age";
+  # age.secrets.fritz-private.file = "${self}/secrets/wireguard/fritz-private.age";
     
   boot.kernel.sysctl = {
     "net.ipv6.conf.default.accept_ra"  = 0;

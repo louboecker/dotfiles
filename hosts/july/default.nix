@@ -6,6 +6,6 @@
     ./networking.nix
     ./user.nix
 
-    ./dn42
+    # ./dn42
   ];
 }
