@@ -156,7 +156,7 @@
     authKeyFile = config.age.secrets.tailscale-auth-key.path;
     extraSetFlags = [
       "--advertise-exit-node"
-      "--advertise-routes=172.20.0.0/14,fd00::/8"
+      # "--advertise-routes=172.20.0.0/14,fd00::/8"
     ];
     useRoutingFeatures = "server";
   };
