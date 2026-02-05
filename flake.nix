@@ -33,6 +33,10 @@
       url = "github:StckOverflw/railboard-api";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    copyparty = {
+      url = "github:9001/copyparty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -45,6 +49,7 @@
     agenix,
     home-manager,
     colmena,
+    copyparty,
     ...
   } @ attrs: let
     system = "x86_64-linux";
@@ -60,7 +65,9 @@
         nodeNixpkgs = {
           july = import nixpkgs {
             inherit system;
-            overlays = [];
+            overlays = [
+              copyparty.overlays.default
+            ];
           };
         };
       };
@@ -68,6 +75,7 @@
         imports = [
           ./july.nix
           agenix.nixosModules.default
+          copyparty.nixosModules.default
         ];
         deployment = {
           targetUser = "emma";

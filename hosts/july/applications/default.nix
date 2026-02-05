@@ -9,7 +9,7 @@
 
     ./kanidm.nix
 
-    ./nextcloud.nix
+    ./copyparty.nix
     ./railboard-api.nix
     ./rmbg-server.nix
 

@@ -48,4 +48,7 @@ in {
 
   "secrets/samba/test-samba-credentials.age".publicKeys = allKeys;
   "secrets/samba/nextcloud-samba-credentials.age".publicKeys = allKeys;
+  "secrets/samba/files-samba-credentials.age".publicKeys = allKeys;
+
+  "secrets/copyparty/copyparty-lou-password.age".publicKeys = allKeys;
 }
