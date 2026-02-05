@@ -28,7 +28,12 @@
       trusted_proxies = ["127.0.0.1"];
       log_type = "file";
       loglevel = 2;
+      check_data_directory_permissions = false;
     };
+
+    phpExtraExtensions = all: [
+      all.smbclient
+    ];
 
     config = {
       dbtype = "mysql";
@@ -38,6 +43,5 @@
   };
 
   services.nginx.virtualHosts."cloud.boecker.dev" = {
-    serverAliases = ["cloud.stckoverflw.net"];
   };
 }

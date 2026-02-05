@@ -45,4 +45,7 @@ in {
   "secrets/paperless-env.age".publicKeys = allKeys;
   
   "secrets/bak-kk/links-secrets.age".publicKeys = allKeys;
+
+  "secrets/samba/test-samba-credentials.age".publicKeys = allKeys;
+  "secrets/samba/nextcloud-samba-credentials.age".publicKeys = allKeys;
 }

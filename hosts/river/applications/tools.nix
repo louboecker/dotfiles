@@ -6,6 +6,8 @@
     useBabelfish = true;
   };
 
+  services.ringboard.wayland.enable = true;
+
   environment.systemPackages = with pkgs; [
     pulsemeeter
     nextcloud-client

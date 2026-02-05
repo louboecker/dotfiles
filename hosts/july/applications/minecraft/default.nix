@@ -9,7 +9,7 @@
     # ./ljs-lsa.nix
     # ./uwu.nix
     # ./ljs.nix
-    ./etog.nix
+    # ./etog.nix
     ./tweakistan.nix
   ];
 }
