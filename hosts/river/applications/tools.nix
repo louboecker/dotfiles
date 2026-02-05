@@ -17,6 +17,7 @@
     appimage-run
     gparted
     woeusb
+    sbctl
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
   ]);

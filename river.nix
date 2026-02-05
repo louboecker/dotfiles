@@ -7,7 +7,12 @@
       ./common.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = false;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "river";

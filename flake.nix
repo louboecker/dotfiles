@@ -13,6 +13,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +40,7 @@
     nixpkgs,
     nixpkgs-unstable,
     disko,
+    lanzaboote,
     nixos-generators,
     agenix,
     home-manager,
@@ -73,7 +78,10 @@
         nix.registry.nixpkgs.flake = nixpkgs;
       };
       river = {
-        imports = [ ./river.nix ];
+        imports = [ 
+          lanzaboote.nixosModules.lanzaboote
+          ./river.nix 
+        ];
         nix.registry.nixpkgs.flake = nixpkgs-unstable;
         deployment = {
           allowLocalDeployment = true;
