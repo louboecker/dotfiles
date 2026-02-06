@@ -49,6 +49,11 @@ in {
   "secrets/samba/test-samba-credentials.age".publicKeys = allKeys;
   "secrets/samba/nextcloud-samba-credentials.age".publicKeys = allKeys;
   "secrets/samba/files-samba-credentials.age".publicKeys = allKeys;
+  "secrets/samba/media-samba-credentials.age".publicKeys = allKeys;
 
   "secrets/copyparty/copyparty-lou-password.age".publicKeys = allKeys;
+
+  "secrets/media/media-vpn-wg.age".publicKeys = allKeys;
+  "secrets/media/transmission.age".publicKeys = allKeys;
+  "secrets/media/oauth2-proxy.age".publicKeys = allKeys;
 }

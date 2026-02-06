@@ -6,6 +6,7 @@
     ./matrix.nix
     ./reverse-proxy.nix
     ./immich
+    ./media
 
     ./kanidm.nix
 

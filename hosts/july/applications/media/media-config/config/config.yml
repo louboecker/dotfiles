@@ -1,0 +1,32 @@
+localConfigTemplatesPath: templates
+trashRevision: 58a89d6dabe3e9b6f9754841ae95a1030c4d14ec
+
+sonarr:
+  lou:
+    base_url: https://sonarr.boecker.dev
+    api_key: !env SONARR_API_KEY
+    delete_unmanaged_custom_formats:
+      enabled: true
+    include:
+      - template: sonarr-custom-formats
+      - template: sonarr-quality
+      - template: sonarr-original-language
+      - template: sonarr-naming
+      # - template: sonarr-x265-deny
+    media_management:
+      downloadPropersAndRepacks: doNotPrefer
+
+radarr:
+  lou:
+    base_url: https://radarr.boecker.dev
+    api_key: !env RADARR_API_KEY
+    delete_unmanaged_custom_formats:
+      enabled: true
+    include:
+      - template: radarr-custom-formats
+      - template: radarr-quality
+      - template: radarr-original-language
+      - template: radarr-naming
+      # - template: radarr-x265-deny
+    media_management:
+      downloadPropersAndRepacks: doNotPrefer

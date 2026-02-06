@@ -524,7 +524,8 @@
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "railboard-api": "railboard-api"
+        "railboard-api": "railboard-api",
+        "trackerlist": "trackerlist"
       }
     },
     "rust-overlay": {
@@ -576,6 +577,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "trackerlist": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770332916,
+        "narHash": "sha256-vb1vybwgFmU1p5dwKfFZsFvBA2kcddp4GBgh4fD+ZKA=",
+        "owner": "ngosang",
+        "repo": "trackerslist",
+        "rev": "e267817c9060e778a398905ec3ace2a75a0bfbf6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ngosang",
+        "repo": "trackerslist",
         "type": "github"
       }
     }

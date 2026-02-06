@@ -37,6 +37,10 @@
       url = "github:9001/copyparty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    trackerlist = {
+      url = "github:ngosang/trackerslist";
+      flake = false;
+    };
   };
 
   outputs = {
