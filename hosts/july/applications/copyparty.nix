@@ -15,6 +15,8 @@
       p = [ 3210 ];
       shr = "/shr";
       "shr-adm" = ["lou"];
+      rproxy = -1;
+      hist = "/var/lib/copyparty";
     };
 
     accounts = {
