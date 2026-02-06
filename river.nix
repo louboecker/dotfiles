@@ -25,7 +25,8 @@
     useXkbConfig = true; 
   };
 
-  services.gnome.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = false;
+  programs.ssh.startAgent = true;
 
   services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
