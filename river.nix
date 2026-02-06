@@ -25,12 +25,10 @@
     useXkbConfig = true; 
   };
 
-  services.gnome.gnome-keyring.enable = false;
-  programs.ssh.startAgent = true;
+  services.gnome.gnome-keyring.enable = true;
 
   services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
-  services.desktopManager.plasma6.enable = true;
 
   services.system76-scheduler.enable = true;
 
