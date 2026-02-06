@@ -11,6 +11,7 @@
     vesktop
     spotify
     thunderbird
+    jellyfin-desktop
 
     telegram-desktop
     signal-desktop
