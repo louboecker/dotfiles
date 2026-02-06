@@ -5,5 +5,6 @@
     jujutsu
     pnpm
     nodejs_25
+    nixfmt
   ];
 }
