@@ -5,13 +5,11 @@
     (discord.override {
       withVencord = true;
     })
-    (discord-ptb.override {
-      withVencord = true;
-    })
     vesktop
     spotify
     thunderbird
     jellyfin-desktop
+    vlc
 
     telegram-desktop
     signal-desktop
