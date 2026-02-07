@@ -73,6 +73,11 @@
               copyparty.overlays.default
             ];
           };
+          june = import nixpkgs {
+            inherit system;
+            overlays = [
+            ];
+          };
         };
       };
       july = {
@@ -86,6 +91,19 @@
           targetHost = "boecker.dev";
           targetPort = 22;
           buildOnTarget = true;
+        };
+        nix.registry.nixpkgs.flake = nixpkgs;
+      };
+      june = {
+        imports = [
+          ./june.nix
+          agenix.nixosModules.default
+        ];
+        deployment = {
+          targetUser = "lou";
+          targetHost = "46.224.204.15";
+          targetPort = 22;
+          buildOnTarget = false;
         };
         nix.registry.nixpkgs.flake = nixpkgs;
       };

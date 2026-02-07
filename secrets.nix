@@ -5,9 +5,12 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF9JOPOwuT4iHyB7x9OOsLmQMA8sLFPVisuvIyRmvJe5" # laptop
   ];
 
-  systemKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII8+tB44MHGTih2DlHeNpnEYE2ah6/OS6lwcJQTGwrae root@nixos";
+  systemKeys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII8+tB44MHGTih2DlHeNpnEYE2ah6/OS6lwcJQTGwrae root@nixos" # july
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJuh9PuiBBVeskbUDgsrt7J9VLCbIv94yA2DyNBA2Nqn" # june
+  ];
 
-  allKeys = userKeys ++ [systemKey];
+  allKeys = userKeys ++ systemKeys;
 in {
   "secrets/cloudflare-api-key.age".publicKeys = allKeys;
 
@@ -41,6 +44,7 @@ in {
   "secrets/wireguard/dn42/peer2-private.age".publicKeys = allKeys;
 
   "secrets/tailscale/tailscale-auth-key.age".publicKeys = allKeys;
+  "secrets/tailscale/june/tailscale-auth-key.age".publicKeys = allKeys;
 
   "secrets/paperless-env.age".publicKeys = allKeys;
   
