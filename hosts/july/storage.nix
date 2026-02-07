@@ -28,6 +28,6 @@
   fileSystems."/mnt/media" = {
     device = "//u541952-sub3.your-storagebox.de/u541952-sub3";
     fsType = "cifs";
-    options = [ "credentials=${config.age.secrets.media-samba-credentials.path}" "noauto" "nofail" "uid=967" "gid=965" "file_mode=0660" "dir_mode=0770" ];
+    options = [ "credentials=${config.age.secrets.media-samba-credentials.path}" "noauto" "nofail" "uid=967" "gid=965" "file_mode=0660" "dir_mode=0770" "noserverino" ];
   };
 }
