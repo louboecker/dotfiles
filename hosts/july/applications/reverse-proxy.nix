@@ -84,8 +84,6 @@
       };
     };
 
-    systemd.services."acme-boecker.dev-start".wants = [ "bind.service" "dnsmasq.service" ];
-
     users.users.nginx.extraGroups = [ "acme" ];
     age.secrets.cloudflare-api-key.file = "${self}/secrets/cloudflare-api-key.age";
   };
