@@ -17,10 +17,18 @@
 
     scrapeConfigs = [
       {
-        job_name = "node-exporter";
+        job_name = "july";
         static_configs = [
           {
             targets = ["localhost:${toString config.services.prometheus.exporters.node.port}"];
+          }
+        ];
+      }
+      {
+        job_name = "june";
+        static_configs = [
+          {
+            targets = ["june:9002"];
           }
         ];
       }
