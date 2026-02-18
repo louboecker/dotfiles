@@ -583,11 +583,11 @@
     "trackerlist": {
       "flake": false,
       "locked": {
-        "lastModified": 1770332916,
-        "narHash": "sha256-vb1vybwgFmU1p5dwKfFZsFvBA2kcddp4GBgh4fD+ZKA=",
+        "lastModified": 1771024183,
+        "narHash": "sha256-/k5pYLVaauGFtUAmz9Yi63zolNj2R7rh/3On7OABwro=",
         "owner": "ngosang",
         "repo": "trackerslist",
-        "rev": "e267817c9060e778a398905ec3ace2a75a0bfbf6",
+        "rev": "5fca252d073c5bc87636c119e210028e53b50bc9",
         "type": "github"
       },
       "original": {
