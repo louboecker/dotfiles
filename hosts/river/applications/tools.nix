@@ -18,6 +18,7 @@
     gparted
     woeusb
     sbctl
+    ffmpeg-full
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
   ]);

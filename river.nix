@@ -47,6 +47,10 @@
   environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 
   hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = [
+    pkgs.libva-vdpau-driver
+    pkgs.nvidia-vaapi-driver
+  ];
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
