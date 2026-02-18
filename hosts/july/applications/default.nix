@@ -13,6 +13,7 @@
     ./copyparty.nix
     ./railboard-api.nix
     ./rmbg-server.nix
+    ./memos.nix
 
     ./static.nix
 
