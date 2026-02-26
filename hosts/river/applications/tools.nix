@@ -22,6 +22,7 @@
     solaar
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
+      gwenview
   ]);
 
   services.flatpak.enable = true;
