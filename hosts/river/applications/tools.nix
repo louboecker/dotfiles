@@ -20,6 +20,7 @@
     sbctl
     ffmpeg-full
     solaar
+    ngrok
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
       gwenview

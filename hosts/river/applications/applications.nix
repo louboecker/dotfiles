@@ -11,6 +11,8 @@
     jellyfin-desktop
     vlc
 
+    obs-studio
+
     telegram-desktop
     signal-desktop
     fluffychat

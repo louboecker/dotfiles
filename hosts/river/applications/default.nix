@@ -9,7 +9,8 @@
     "nvidia-settings"
     "nvidia-persistenced"
     "vscode"
-    "idea"  
+    "idea"
+    "ngrok"
   ];
 
   nixpkgs.config.allowBrokenPredicate = pkg: builtins.elem (lib.getName pkg) [
