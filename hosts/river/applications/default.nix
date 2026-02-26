@@ -9,6 +9,9 @@
     "nvidia-settings"
     "nvidia-persistenced"
     "vscode"
+    "vscode-with-extensions"
+    "vscode-extension-ms-vscode-remote-vscode-remote-extensionpack"
+    "vscode-extension-ms-vsliveshare-vsliveshare"
     "idea"
     "ngrok"
   ];
