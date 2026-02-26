@@ -21,6 +21,7 @@
     ffmpeg-full
     solaar
     ngrok
+    yt-dlp
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
       gwenview
