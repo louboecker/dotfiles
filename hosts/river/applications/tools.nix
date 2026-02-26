@@ -19,6 +19,7 @@
     woeusb
     sbctl
     ffmpeg-full
+    solaar
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
   ]);
