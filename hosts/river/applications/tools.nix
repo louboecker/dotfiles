@@ -22,6 +22,7 @@
     solaar
     ngrok
     yt-dlp
+    net-tools
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
       gwenview
