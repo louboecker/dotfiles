@@ -54,7 +54,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
-    open = true;
+    open = false;
   };
 
   system.stateVersion = "25.11"; 
