@@ -9,11 +9,13 @@
     ./media
 
     ./kanidm.nix
-
+    
     ./copyparty.nix
     ./railboard-api.nix
     ./rmbg-server.nix
     ./memos.nix
+
+    ./streaming
 
     ./static.nix
 
