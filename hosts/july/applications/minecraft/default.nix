@@ -1,8 +1,9 @@
-{ ... }: {
-    networking.firewall.allowedTCPPorts = [  
-      25565
-      25521
-    ];
+{ ... }:
+{
+  networking.firewall.allowedTCPPorts = [
+    25565
+    25521
+  ];
 
   imports = [
     # ./bak-kk.nix
@@ -10,6 +11,6 @@
     # ./uwu.nix
     # ./ljs.nix
     # ./etog.nix
-    ./tweakistan.nix
+    # ./tweakistan.nix
   ];
 }
