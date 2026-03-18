@@ -11,7 +11,9 @@
     jellyfin-desktop
     vlc
 
-    obs-studio
+    (obs-studio.override {
+      cudaSupport = true;
+    })
 
     telegram-desktop
     signal-desktop
