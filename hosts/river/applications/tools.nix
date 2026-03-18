@@ -23,6 +23,7 @@
     ngrok
     yt-dlp
     net-tools
+    mtr
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
       gwenview
