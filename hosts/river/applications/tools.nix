@@ -8,6 +8,8 @@
 
   services.ringboard.wayland.enable = true;
 
+  services.hardware.openrgb.enable = true;
+
   environment.systemPackages = with pkgs; [
     pulsemeeter
     nextcloud-client
@@ -24,6 +26,7 @@
     yt-dlp
     net-tools
     mtr
+    openrgb
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
       gwenview
