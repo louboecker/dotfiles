@@ -12,7 +12,7 @@
     config = ''
       . {
         forward . /etc/resolv.conf
-        bind ens3
+        bind wg0
 
         rewrite continue {
           name exact euc10.contribute.live-video.net stream.boecker.dev

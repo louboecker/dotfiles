@@ -96,7 +96,7 @@
       "8.8.4.4"
     ];
 
-    # wireguard.interfaces = {
+    wireguard.interfaces = {
     #   wg0 = {
     #     listenPort = 51820;
     #     allowedIPsAsRoutes = false;
@@ -123,26 +123,27 @@
     #       }
     #     ];
     #   };
-      # wg1 = {
-      #   allowedIPsAsRoutes = false;
-      #   privateKeyFile = config.age.secrets.fritz-private.path;
+      wg0 = {
+        allowedIPsAsRoutes = false;
+        privateKeyFile = config.age.secrets.fritz-private.path;
 
-      #   ips = [
-      #     "192.168.178.201/24"
-      #   ];
+        ips = [
+          "192.168.178.201/24"
+          "fd34:250b:3fd::201/64"
+        ];
 
-      #   peers = [
-      #     { # home fritzbox
-      #       name = "fritz-home";
-      #       publicKey = "1DmvSMbkh+qiivD5mdQShKrfFV6mzJIWemJmTq7f6RM=";
-      #       presharedKey = "+z2Ditg3KrDejJ7g5nR/K+n63/op3aTbp/W5M/CKULw=";
-      #       allowedIPs = [ "192.168.178.0/24" ];
-      #       endpoint = "asj4ixwav1fgmbmj.myfritz.net:50021";
-      #       persistentKeepalive = 25;
-      #     }
-      #   ];
-      # };
-    # };
+        peers = [
+          { # home fritzbox
+            name = "fritz-home";
+            endpoint = "cfljbar4mtcjj5i3.myfritz.net:50888";
+            publicKey = "fI6GKMwJHo1IsFYxRAFzNWRb/bltS8hdLnlhJ9SsJEM=";
+            presharedKeyFile = config.age.secrets.fritz-preshared-key.path;
+            allowedIPs = [ "192.168.178.0/24" "fd34:250b:3fd::/64" ];
+            persistentKeepalive = 25;
+          }
+        ];
+      };
+    };
   };
 
   age.secrets.tailscale-auth-key = {
@@ -162,7 +163,8 @@
   };
 
   # age.secrets.river-private.file = "${self}/secrets/wireguard/river-private.age";
-  # age.secrets.fritz-private.file = "${self}/secrets/wireguard/fritz-private.age";
+  age.secrets.fritz-private.file = "${self}/secrets/wireguard/fritz-private.age";
+  age.secrets.fritz-preshared-key.file = "${self}/secrets/wireguard/fritz-preshared-key.age";
     
   boot.kernel.sysctl = {
     "net.ipv6.conf.default.accept_ra"  = 0;

@@ -1,6 +1,6 @@
 {...}: {
   imports = [
     ./coredns.nix
-    ./restreamer.nix
+    ./mistserver.nix
   ];
 }
