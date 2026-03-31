@@ -5,6 +5,7 @@
     (discord.override {
       withVencord = true;
     })
+    legcord
     vesktop
     spotify
     thunderbird

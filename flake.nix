@@ -41,6 +41,7 @@
       url = "github:ngosang/trackerslist";
       flake = false;
     };
+    affinity-nix.url = "github:mrshmllow/affinity-nix";
   };
 
   outputs = {
