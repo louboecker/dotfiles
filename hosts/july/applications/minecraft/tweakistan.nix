@@ -33,7 +33,7 @@
     environment = {
       EULA="TRUE";
       TYPE="FABRIC";
-      VERSION="1.21.10";
+      VERSION="26.1.2";
       SERVER_PORT = "25566";
       RCON_PORT = "25766";
       MOTD = "";
@@ -53,7 +53,7 @@
       #   chunky
       # '';
       MODS= '' 
-        https://github.com/Cubxity/UnifiedMetrics/releases/download/v0.3.x-SNAPSHOT/unifiedmetrics-platform-fabric-0.3.10-SNAPSHOT.jar
+        https://files.boecker.dev/shr/plugins/unifiedmetrics-platform-fabric-0.3.10-SNAPSHOT.jar
       '';
       MODRINTH_PROJECTS = ''
         fabric-api
@@ -66,16 +66,13 @@
         scalablelux
         lithium
         no-chat-reports
-        no-dim
-        invview
-        vanish
         enhanced-groups
-        distanthorizons
         journeymap
-        viafabric
-        viaversion
-        viabackwards
+        
       '';
+      # viafabric
+      # viaversion
+      # viabackwards
       MODRINTH_ALLOWED_VERSION_TYPE="alpha";
       UID="0";
       GID="0";
