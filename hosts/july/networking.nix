@@ -43,6 +43,7 @@
     firewall.allowedUDPPorts = [
       24454
       30120
+      51820
     ];
 
     interfaces = {
@@ -124,6 +125,7 @@
     #     ];
     #   };
       wg0 = {
+        listenPort = 51820;
         allowedIPsAsRoutes = false;
         privateKeyFile = config.age.secrets.fritz-private.path;
 
