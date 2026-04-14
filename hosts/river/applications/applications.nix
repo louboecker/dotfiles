@@ -16,6 +16,11 @@
       cudaSupport = true;
     })
 
+    libreoffice
+    hunspell
+    hunspellDicts.de-de
+    hunspellDicts.en-us
+
     telegram-desktop
     signal-desktop
     fluffychat
