@@ -10,6 +10,7 @@
         k--kato.intellij-idea-keybindings
         ms-vsliveshare.vsliveshare
         arrterian.nix-env-selector
+        ms-python.python
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "vsc-vira-theme";
@@ -24,5 +25,8 @@
     pnpm
     nodejs_25
     nixfmt
+    jdk25_headless
+
+    jetbrains-toolbox
   ];
 }

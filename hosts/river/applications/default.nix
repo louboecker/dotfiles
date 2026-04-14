@@ -14,6 +14,7 @@
     "vscode-extension-ms-vsliveshare-vsliveshare"
     "idea"
     "ngrok"
+    "jetbrains-toolbox"
   ];
 
   nixpkgs.config.allowBrokenPredicate = pkg: builtins.elem (lib.getName pkg) [
