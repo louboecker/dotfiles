@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, affinity-nix, ...}: {
   environment.systemPackages = with pkgs; [
     firefox
     ungoogled-chromium
@@ -16,13 +16,18 @@
       cudaSupport = true;
     })
 
+    affinity-nix.packages.x86_64-linux.v3
+
     libreoffice
     hunspell
     hunspellDicts.de-de
     hunspellDicts.en-us
 
+    obsidian
+
     telegram-desktop
     signal-desktop
     fluffychat
+    cinny-desktop
   ];
 }

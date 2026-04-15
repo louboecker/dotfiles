@@ -1,4 +1,4 @@
-{ pkgs, affinity-nix, ...}: {
+{ pkgs, ...}: {
   users.defaultUserShell = pkgs.fish;
   users.users.lou.useDefaultShell = true;
   programs.fish = {
@@ -27,7 +27,6 @@
     net-tools
     mtr
     openrgb
-    affinity-nix.packages.x86_64-linux.v3
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
       gwenview
