@@ -10,7 +10,7 @@
 
     ./kanidm.nix
     
-    ./copyparty.nix
+    ./files
     ./railboard-api.nix
     ./rmbg-server.nix
     ./memos.nix

@@ -15,6 +15,7 @@
     "idea"
     "ngrok"
     "jetbrains-toolbox"
+    "obsidian"
   ];
 
   nixpkgs.config.allowBrokenPredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -26,5 +27,7 @@
     ./development.nix
     ./gaming.nix
     ./tools.nix
+
+    ./syncthing.nix
   ];
 }

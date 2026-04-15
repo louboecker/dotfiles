@@ -4,11 +4,12 @@
   age.secrets.copyparty-lou-password = {
     file = "${self}/secrets/copyparty/copyparty-lou-password.age";
     owner = "copyparty";
-    group = "copyparty";
   };
 
   services.copyparty = {
     enable = true;
+
+    group = "files";
 
     settings = {
       i = "0.0.0.0";

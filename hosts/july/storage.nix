@@ -32,7 +32,9 @@
       "noauto"
       "nofail"
       "uid=971"
-      "gid=966"
+      "gid=962"
+      "file_mode=0660"
+      "dir_mode=0770"
       "noserverino"
       "seal"
     ];
