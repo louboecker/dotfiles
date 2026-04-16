@@ -17,13 +17,14 @@
       gui.insecureSkipHostcheck = true;
       devices = {
         river.id = "3WFVGHT-SPOM4N7-XAWEBT7-A7KEFI3-V7AAKWL-GFDTR76-6JDHEPH-ELSOXAB";
+        nothing.id = "YMCGY6V-YUQ2QDU-RJJJIKV-SAYKNCV-64UNWS4-A7RXQSY-KOR26MG-F2AFUQW";
       };
       folders = {
         obsidian = {
           label = "Obsidian";
           path = "/var/lib/syncthing/obsidian";
           devices = [
-            "river"
+            "river" "nothing"
           ];
         };
       };
