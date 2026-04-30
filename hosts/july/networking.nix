@@ -130,17 +130,15 @@
         privateKeyFile = config.age.secrets.fritz-private.path;
 
         ips = [
-          "192.168.178.201/24"
-          "fd34:250b:3fd::201/64"
+          "192.168.161.1/24"
         ];
 
         peers = [
           { # home fritzbox
             name = "fritz-home";
             endpoint = "cfljbar4mtcjj5i3.myfritz.net:50888";
-            publicKey = "fI6GKMwJHo1IsFYxRAFzNWRb/bltS8hdLnlhJ9SsJEM=";
-            presharedKeyFile = config.age.secrets.fritz-preshared-key.path;
-            allowedIPs = [ "192.168.178.0/24" "fd34:250b:3fd::/64" ];
+            publicKey = "wHCQ7pNpk1Ksrk88WjnpCRldNfmdFLANtemb9Ifdb2M=";
+            allowedIPs = [ "192.168.161.2/32" "192.168.178.0/24" ];
             persistentKeepalive = 25;
           }
         ];
