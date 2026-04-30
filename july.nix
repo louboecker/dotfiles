@@ -34,6 +34,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
+
   nix = {
     settings = {
       trusted-users = ["@wheel"];
