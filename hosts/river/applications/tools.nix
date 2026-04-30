@@ -30,6 +30,7 @@
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
       gwenview
+      karp
   ]);
 
   services.flatpak.enable = true;
