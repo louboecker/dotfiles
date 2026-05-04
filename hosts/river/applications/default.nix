@@ -8,6 +8,7 @@
     "nvidia-x11"
     "nvidia-settings"
     "nvidia-persistenced"
+    "nvidia-kernel-modules"
     "vscode"
     "vscode-with-extensions"
     "vscode-extension-ms-vscode-remote-vscode-remote-extensionpack"

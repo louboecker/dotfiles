@@ -1,11 +1,12 @@
-{ config, pkgs, ...}:
-let 
+{ config, pkgs, ... }:
+let
   idm_domain = "idm.boecker.dev";
-in {
+in
+{
   services.kanidm = {
     enableServer = true;
 
-    package = pkgs.kanidm_1_8;
+    package = pkgs.kanidm_1_9;
 
     serverSettings = {
       domain = "${idm_domain}";
