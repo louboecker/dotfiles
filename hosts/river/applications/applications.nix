@@ -5,6 +5,9 @@
     (discord.override {
       withVencord = true;
     })
+    (discord-canary.override {
+      withVencord = true;
+    })
     legcord
     vesktop
     spotify
@@ -24,6 +27,8 @@
     hunspellDicts.en-us
 
     obsidian
+
+    mixxx
 
     telegram-desktop
     signal-desktop

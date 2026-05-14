@@ -1,7 +1,7 @@
 { lib, ...}: {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
-    "discord-ptb"
+    "discord-canary"
     "spotify"
     "steam"
     "steam-unwrapped"

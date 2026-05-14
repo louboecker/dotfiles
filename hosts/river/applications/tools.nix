@@ -33,5 +33,7 @@
       karp
   ]);
 
+  programs.kdeconnect.enable = true;
+
   services.flatpak.enable = true;
 }

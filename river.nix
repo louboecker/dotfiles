@@ -21,20 +21,17 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
+    # font = "Lat2-Terminus16";
     useXkbConfig = true; 
   };
 
-  services.gnome.gnome-keyring.enable = false;
   programs.ssh.startAgent = true;
 
-  services.displayManager.cosmic-greeter.enable = true;
-  services.desktopManager.cosmic.enable = true;
-
-  services.system76-scheduler.enable = true;
-
-  environment.cosmic.excludePackages = with pkgs; [
-    cosmic-store
+  services.displayManager.plasma-login-manager.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  
+  environment.systemPackages = with pkgs; [
+    catppuccin-kde
   ];
 
   services.xserver.xkb.layout = "de";
@@ -43,8 +40,6 @@
      enable = true;
      pulse.enable = true;
   };
-
-  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 
   hardware.graphics.enable = true;
   hardware.graphics.extraPackages = [
@@ -56,6 +51,10 @@
     modesetting.enable = true;
     open = false;
   };
+
+  boot.initrd.availableKernelModules = [
+    "nvidia_drm" "nvidia_modeset" "nvidia" "nvidia_uvm"
+  ];
 
   system.stateVersion = "25.11"; 
 }
