@@ -35,7 +35,7 @@
           scan = 60;
           e2d = true;
           d2t = true;
-          nohash = "\.iso$";
+          nohash = "\\.iso$";
         };
       };
     };
