@@ -4,12 +4,13 @@
   railboard-api,
   pkgs,
   ...
-}: {
+}:
+{
   age.secrets.ris-tokens.file = "${self}/secrets/ris-tokens.age";
 
   systemd.services.railboard-api = {
-    after = ["redis-railboard.service"];
-    wants = ["redis-railboard.service"];
+    after = [ "redis-railboard.service" ];
+    wants = [ "redis-railboard.service" ];
   };
 
   systemd.services.railboard-api = {
@@ -49,6 +50,28 @@
       DynamicUser = "yes";
     };
   };
+
+  # virtualisation.oci-containers.containers.railboard-api = {
+  #   image = "ghcr.io/louboecker/railboard-api:8a257633284841913e0f32f08a76c172c5e1e2ef";
+
+  #   environmentFiles = [ config.age.secrets.ris-tokens.path ];
+
+  #   environment = {
+  #     API_URL = "0.0.0.0:6969";
+  #     REDIS_URL = "unix:///run/redis-railboard/redis.sock";
+  #   };
+
+  #   volumes = [
+  #     "/var/lib/minecraft-lj-stream:/data/"
+  #   ];
+
+  #   extraOptions = [ "--network=host" ];
+  # };
+
+  # services.redis.servers.railboard = {
+  #   enable = true;
+  #   port = 0;
+  # };
 
   services.nginx.virtualHosts."api.rail.boecker.dev" = {
     locations."/" = {
