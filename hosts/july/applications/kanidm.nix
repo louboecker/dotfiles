@@ -6,7 +6,7 @@ in
   services.kanidm = {
     enableServer = true;
 
-    package = pkgs.kanidm_1_9;
+    package = pkgs.kanidm_1_10;
 
     serverSettings = {
       domain = "${idm_domain}";
