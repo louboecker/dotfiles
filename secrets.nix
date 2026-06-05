@@ -61,4 +61,5 @@ in {
   "secrets/media/media-vpn-wg.age".publicKeys = allKeys;
   "secrets/media/transmission.age".publicKeys = allKeys;
   "secrets/media/oauth2-proxy.age".publicKeys = allKeys;
+  "secrets/media/tmdb-api-key.age".publicKeys = allKeys;
 }

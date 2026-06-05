@@ -6,6 +6,7 @@
     ./prowlarr.nix
     ./radarr.nix
     ./sonarr.nix
+    ./bitmagnet.nix
     ./transmission.nix
     ./vpn.nix
   ];
