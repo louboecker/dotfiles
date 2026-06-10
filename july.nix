@@ -18,6 +18,8 @@
     git
     htop
     dig
+    wget 
+    btop
   ];
 
   boot.loader.grub.devices = ["/dev/vda"];
