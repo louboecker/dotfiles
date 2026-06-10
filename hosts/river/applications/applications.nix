@@ -1,4 +1,4 @@
-{ pkgs, affinity-nix, ...}: {
+{ pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     firefox
     ungoogled-chromium
@@ -11,7 +11,7 @@
       cudaSupport = true;
     })
 
-    affinity-nix.packages.x86_64-linux.v3
+    affinity-v3
 
     libreoffice-qt-fresh
     hunspell
