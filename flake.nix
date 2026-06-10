@@ -26,11 +26,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     iws-rs = {
-      url = "github:StckOverflw/iws-rs";
+      url = "github:louboecker/iws-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     railboard-api = {
-      url = "github:StckOverflw/railboard-api";
+      url = "github:louboecker/railboard-api";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     copyparty = {
@@ -55,6 +55,7 @@
     home-manager,
     colmena,
     copyparty,
+    affinity-nix,
     ...
   } @ attrs: let
     system = "x86_64-linux";
@@ -68,6 +69,12 @@
         };
         specialArgs = attrs;
         nodeNixpkgs = {
+          river = import nixpkgs-unstable {
+            inherit system;
+            overlays = [
+              affinity-nix.overlays.default
+            ];
+          };
           july = import nixpkgs {
             inherit system;
             overlays = [
