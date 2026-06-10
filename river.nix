@@ -25,7 +25,14 @@
     useXkbConfig = true; 
   };
 
-  programs.ssh.startAgent = true;
+  programs.ssh = {
+    startAgent = true;
+    enableAskPassword = true;
+  };
+
+  environment.variables = {
+    SSH_ASKPASS_REQUIRE = "prefer";
+  };
 
   services.displayManager.plasma-login-manager.enable = true;
   services.desktopManager.plasma6.enable = true;
