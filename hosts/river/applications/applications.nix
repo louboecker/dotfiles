@@ -5,6 +5,7 @@
     spotify
     thunderbird
     jellyfin-desktop
+    delfin
     vlc
 
     (obs-studio.override {
