@@ -19,6 +19,8 @@
 
     mixxx
 
+    chatterino7
+
     telegram-desktop
     signal-desktop
     fluffychat

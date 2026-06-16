@@ -31,6 +31,8 @@
       isoimagewriter
       gwenview
       karp
+      kdenlive
+      glaxnimate
   ]);
 
   programs.kdeconnect.enable = true;
