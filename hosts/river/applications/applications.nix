@@ -1,6 +1,7 @@
-{ pkgs, ...}: {
+{ pkgs, zen-browser, ...}: {
   environment.systemPackages = with pkgs; [
     firefox
+    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     ungoogled-chromium
     spotify
     thunderbird

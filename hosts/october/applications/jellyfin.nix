@@ -14,7 +14,7 @@
     openFirewall = true;
   };
 
-  services.nginx.virtualHosts."jelly.boecker.dev".locations."/" = {
+  services.nginx.virtualHosts."jelly.oct.boecker.dev".locations."/" = {
     proxyPass = "http://127.0.0.1:8096";
     proxyWebsockets = true;
   };

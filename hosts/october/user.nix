@@ -13,6 +13,17 @@
     useDefaultShell = true;
   };
 
+  users.users.marie = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+    ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILdNaJgKxA021pqrbkoMiP2a9buYZUXfG5q01y2h8YOa" # desktop
+    ];
+    useDefaultShell = true;
+  };
+
   users.users.garfxld = {
     isNormalUser = true;
     extraGroups = [

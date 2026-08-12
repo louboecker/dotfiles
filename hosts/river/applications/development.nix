@@ -15,6 +15,8 @@
     jetbrains-toolbox
 
     wl-clipboard
+
+    opencode
   ] ++ [
     agenix.packages.x86_64-linux.default 
     colmena.packages.x86_64-linux.colmena
@@ -22,7 +24,11 @@
 
   virtualisation.waydroid.enable = true;
 
-  users.users.lou.extraGroups = ["adbusers"];
+  virtualisation.docker = {
+    enable = true;
+  };
+
+  users.users.lou.extraGroups = ["adbusers" "docker"];
 
   programs.direnv.enable = true;
 }

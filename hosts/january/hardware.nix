@@ -1,4 +1,5 @@
-{ config, lib, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
+
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -10,22 +11,27 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/446f86ce-50eb-4c8b-ba44-ece13bca5d47";
-      fsType = "ext4";
+    { device = "zroot/root";
+      fsType = "zfs";
     };
 
-  boot.initrd.luks.devices."luks-a985d1c5-bb91-46e0-a6f8-3a8e976bf969".device = "/dev/disk/by-uuid/a985d1c5-bb91-46e0-a6f8-3a8e976bf969";
+  fileSystems."/home" =
+    { device = "zroot/home";
+      fsType = "zfs";
+    };
+
+  fileSystems."/nix" =
+    { device = "zroot/nix";
+      fsType = "zfs";
+    };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/15E5-56FC";
+    { device = "/dev/disk/by-uuid/5455-50BE";
       fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/c20c0ed1-f596-453d-ab82-4144a210edee"; }
-    ];
-
-  networking.useDHCP = lib.mkDefault true;
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

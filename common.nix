@@ -16,6 +16,8 @@
     enable = true;
     useBabelfish = true;
   };
+  
+  nix.settings.trusted-users = [ "@wheel" ];
 
   nix.optimise.automatic = true;
   nix.gc = {

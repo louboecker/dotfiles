@@ -70,4 +70,7 @@ in {
 
   "secrets/vaultwarden-secrets.age".publicKeys = allKeys;
   "secrets/vaultwarden-backup-password.age".publicKeys = allKeys;
+
+  "secrets/penpot/secret-key.age".publicKeys = allKeys;
+  "secrets/penpot/mail-config.age".publicKeys = allKeys;
 }

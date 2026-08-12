@@ -9,12 +9,16 @@
     ./patches
   ];
 
-  boot.loader.systemd-boot.enable = false;
-  boot.lanzaboote = {
+  boot.loader.systemd-boot = {
     enable = true;
-    pkiBundle = "/var/lib/sbctl";
     configurationLimit = 2;
+    memtest86.enable = true;
   };
+  # boot.lanzaboote = {
+  #   enable = false;
+  #   pkiBundle = "/var/lib/sbctl";
+  #   configurationLimit = 2;
+  # };
 
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -52,20 +56,31 @@
   };
 
   hardware.graphics.enable = true;
-  hardware.graphics.extraPackages = [
-    pkgs.libva-vdpau-driver
-    pkgs.nvidia-vaapi-driver
+  hardware.graphics.extraPackages = with pkgs; [
+    libva-vdpau-driver
+    nvidia-vaapi-driver
+    libvdpau-va-gl
   ];
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
-    open = false;
+    open = true;
     branch = "latest";
   };
 
   boot.initrd.availableKernelModules = [
     "nvidia_drm" "nvidia_modeset" "nvidia" "nvidia_uvm"
   ];
+
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+      KbdInteractiveAuthentication = false;
+    };
+  };
 
   system.stateVersion = "25.11"; 
 }

@@ -9,6 +9,8 @@
     ./bitmagnet.nix
     ./transmission.nix
     ./vpn.nix
+
+    ./audiobookshelf.nix
   ];
 
   users = {

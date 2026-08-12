@@ -2,6 +2,7 @@
   services.ringboard.wayland.enable = true;
 
   services.hardware.openrgb.enable = true;
+  services.lact.enable = true;
 
   environment.systemPackages = with pkgs; [
     pulsemeeter
@@ -21,8 +22,11 @@
     mtr
     openrgb
     pixelorama
+    penpot-desktop
 
     openconnect
+
+    furmark
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
       gwenview

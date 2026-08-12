@@ -46,8 +46,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     affinity-nix.url = "github:mrshmllow/affinity-nix";
-    maccel = {
-      url = "github:Gnarus-G/maccel";
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -89,6 +90,11 @@
             ];
           };
           june = import nixpkgs {
+            inherit system;
+            overlays = [
+            ];
+          };
+          january = import nixpkgs-unstable {
             inherit system;
             overlays = [
             ];
@@ -145,14 +151,17 @@
           allowLocalDeployment = true;
         };
       };
-      harper = {
+      january = {
         imports = [
-          ./harper.nix
-          home-manager.nixosModules.home-manager
+          ./common.nix
+          ./hosts/january
           agenix.nixosModules.default
         ];
         nix.registry.nixpkgs.flake = nixpkgs-unstable;
         deployment = {
+          targetUser = "lou";
+          targetHost = "192.168.178.25";
+          targetPort = 22;
           allowLocalDeployment = true;
         };
       };
