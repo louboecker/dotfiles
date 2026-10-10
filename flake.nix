@@ -83,7 +83,7 @@
               affinity-nix.overlays.default
             ];
           };
-          july = import nixpkgs {
+          july = import nixpkgs-unstable {
             inherit system;
             overlays = [
               copyparty.overlays.default

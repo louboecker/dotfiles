@@ -14,7 +14,6 @@
     ./files
     ./railboard-api.nix
     ./rmbg-server.nix
-    ./memos.nix
     
     ./reposilite.nix
 
