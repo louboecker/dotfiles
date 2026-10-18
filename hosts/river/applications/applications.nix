@@ -10,7 +10,7 @@
     plezy
     vlc
 
-    affinity-v3
+    # affinity-v3
 
     libreoffice-qt-fresh
     hunspell
@@ -29,23 +29,23 @@
     cinny-desktop
   ];
 
-  programs.obs-studio = {
-    enable = true;
-    package = (
-      pkgs.obs-studio.override {
-        cudaSupport = true;
-      }
-    );
+  # programs.obs-studio = {
+  #   enable = true;
+  #   package = (
+  #     pkgs.obs-studio.override {
+  #       cudaSupport = true;
+  #     }
+  #   );
 
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-move-transition
-      obs-composite-blur
-      obs-advanced-masks
-      obs-text-pthread
-      obs-pipewire-audio-capture
-      obs-vkcapture
-      obs-tuna
-      obs-wayland-hotkeys
-    ];
-  };
+  #   plugins = with pkgs.obs-studio-plugins; [
+  #     obs-move-transition
+  #     obs-composite-blur
+  #     obs-advanced-masks
+  #     obs-text-pthread
+  #     obs-pipewire-audio-capture
+  #     obs-vkcapture
+  #     obs-tuna
+  #     obs-wayland-hotkeys
+  #   ];
+  # };
 }

@@ -9,16 +9,16 @@
     ./patches
   ];
 
-  boot.loader.systemd-boot = {
-    enable = true;
-    configurationLimit = 2;
-    memtest86.enable = true;
-  };
-  # boot.lanzaboote = {
-  #   enable = false;
-  #   pkiBundle = "/var/lib/sbctl";
+  # boot.loader.systemd-boot = {
+  #   enable = true;
   #   configurationLimit = 2;
+  #   memtest86.enable = true;
   # };
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+    configurationLimit = 2;
+  };
 
   boot.loader.efi.canTouchEfiVariables = true;
 

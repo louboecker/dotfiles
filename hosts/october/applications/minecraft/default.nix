@@ -5,5 +5,6 @@
 
   imports = [
     ./cherrycave
+    ./info.nix
   ];
 }

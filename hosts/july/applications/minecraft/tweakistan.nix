@@ -31,12 +31,12 @@
     environment = {
       EULA="TRUE";
       TYPE="FABRIC";
-      VERSION="26.1.2";
+      VERSION="26.3";
       SERVER_PORT = "25566";
       RCON_PORT = "25766";
       MOTD = "";
       SPAWN_PROTECTION="0";
-      VIEW_DISTANCE="22";
+      VIEW_DISTANCE="32";
       SIMULATION_DISTANCE="6";
       DISABLE_HEALTHCHECK = "true";
       ICON="https://static.boecker.dev/chicken_jockey.jpeg";

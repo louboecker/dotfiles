@@ -45,7 +45,7 @@
       url = "github:cherrycave/bingo-rp-gen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    affinity-nix.url = "github:mrshmllow/affinity-nix";
+    # affinity-nix.url = "github:mrshmllow/affinity-nix";
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,7 +63,7 @@
     home-manager,
     colmena,
     copyparty,
-    affinity-nix,
+    # affinity-nix,
     ...
   } @ attrs: let
     system = "x86_64-linux";
@@ -80,7 +80,7 @@
           river = import nixpkgs-unstable {
             inherit system;
             overlays = [
-              affinity-nix.overlays.default
+              # affinity-nix.overlays.default
             ];
           };
           july = import nixpkgs-unstable {
