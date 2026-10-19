@@ -40,7 +40,7 @@
         lithium
         no-chat-reports
         enhanced-groups
-        disable-end
+        no-dim
       '';
     };
 
