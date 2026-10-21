@@ -5,6 +5,7 @@
     ./monitoring
     ./matrix.nix
     ./reverse-proxy.nix
+    ./http-tunnel.nix
     ./immich
     ./media
 
