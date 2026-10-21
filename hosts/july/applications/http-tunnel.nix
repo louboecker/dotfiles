@@ -1,7 +1,7 @@
 { ... }: {
   services.nginx.virtualHosts."tunnel.boecker.dev" = {
     locations."/" = {
-      proxyPass = "http://localhost:3003";
+      proxyPass = "http://localhost:3303";
 
       extraConfig = ''
         proxy_set_header X-Real-IP $remote_addr;
