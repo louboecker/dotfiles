@@ -11,6 +11,7 @@
 
     ./kanidm.nix
     ./vaultwarden.nix
+    ./ntfy.nix
     
     ./files
     ./railboard-api.nix
