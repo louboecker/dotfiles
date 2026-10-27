@@ -1,10 +1,18 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  dms-plugin-registry,
+  ...
+}:
 {
   imports = [
+    dms-plugin-registry.nixosModules.default
     ../../common.nix
     ./hardware.nix
     ./networking.nix
     ./user.nix
+    ./desktop.nix
     ./applications
     ./patches
   ];
@@ -17,7 +25,7 @@
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
-    configurationLimit = 2;
+    configurationLimit = 10;
   };
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -29,7 +37,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     # font = "Lat2-Terminus16";
-    useXkbConfig = true; 
+    useXkbConfig = true;
   };
 
   programs.ssh = {
@@ -39,20 +47,15 @@
 
   environment.variables = {
     SSH_ASKPASS_REQUIRE = "prefer";
+    NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
-
-  services.displayManager.plasma-login-manager.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  
-  environment.systemPackages = with pkgs; [
-    catppuccin-kde
-  ];
 
   services.xserver.xkb.layout = "de";
 
   services.pipewire = {
-     enable = true;
-     pulse.enable = true;
+    enable = true;
+    pulse.enable = true;
   };
 
   hardware.graphics.enable = true;
@@ -69,7 +72,10 @@
   };
 
   boot.initrd.availableKernelModules = [
-    "nvidia_drm" "nvidia_modeset" "nvidia" "nvidia_uvm"
+    "nvidia_drm"
+    "nvidia_modeset"
+    "nvidia"
+    "nvidia_uvm"
   ];
 
   services.openssh = {
@@ -82,5 +88,5 @@
     };
   };
 
-  system.stateVersion = "25.11"; 
+  system.stateVersion = "25.11";
 }

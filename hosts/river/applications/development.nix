@@ -14,6 +14,7 @@
 
     jetbrains-toolbox
 
+    kitty
     wl-clipboard
 
     opencode
