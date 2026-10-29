@@ -15,6 +15,7 @@
     
     ./files
     ./railboard-api.nix
+    ./bvb-alert.nix
     ./rmbg-server.nix
     
     ./reposilite.nix

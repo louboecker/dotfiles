@@ -12,4 +12,9 @@
       proxyWebsockets = true;
     };
   };
+
+  services.nginx.tailscaleAuth = {
+    enable = true;
+    virtualHosts = [ "ntfy.boecker.dev" ];
+  };
 }
