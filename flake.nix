@@ -41,6 +41,10 @@
       url = "github:cherrycave/bingo-rp-gen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    bvb-alert = {
+      url = "github:louboecker/bvb-alert";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # affinity-nix.url = "github:mrshmllow/affinity-nix";
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
