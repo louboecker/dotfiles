@@ -1,0 +1,11 @@
+layout {
+    gaps 10
+
+    focus-ring {
+        width 1
+    }
+
+    shadow {
+        on
+    }
+}

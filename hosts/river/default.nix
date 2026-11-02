@@ -2,12 +2,12 @@
   config,
   lib,
   pkgs,
-  dms-plugin-registry,
+  home-manager,
   ...
 }:
 {
   imports = [
-    dms-plugin-registry.nixosModules.default
+    home-manager.nixosModules.home-manager
     ../../common.nix
     ./hardware.nix
     ./networking.nix

@@ -2,8 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     vscode
-    git
-    jujutsu
     nixfmt
     jdk25
     mitmproxy
@@ -14,10 +12,10 @@
 
     jetbrains-toolbox
 
-    kitty
     wl-clipboard
 
     opencode
+    claude-code
   ] ++ [
     agenix.packages.x86_64-linux.default 
     colmena.packages.x86_64-linux.colmena

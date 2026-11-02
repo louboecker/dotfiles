@@ -1,49 +1,49 @@
-{ hyprland, pkgs, ... }: {
-  # services.displayManager.plasma-login-manager.enable = true;
-  # services.desktopManager.plasma6.enable = true;
+{ pkgs, ... }: {
+  programs.niri.enable = true;
 
-  services.displayManager.dms-greeter = {
+  services.gnome.gcr-ssh-agent.enable = false;
+
+  services.displayManager.noctalia-greeter = {
     enable = true;
-    compositor.name = "hyprland"; # Or "hyprland" or "sway"
-    configHome = "/home/lou";
-  };
-
-  imports = [
-    hyprland.nixosModules.default
-  ];
-  
-  programs.hyprland = {
-    enable = true;
-
-    plugins = with pkgs; [
-      hyprlandPlugins.hyprsplit
-    ];
-
-    package = pkgs.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-  };
-
-  programs.dux-shell = {
-    enable = true;
-
-    systemd = {
-      enable = true; 
-      restartIfChanged = true; 
-    };
-
-    plugins = {
-      dankKDEConnect.enable = true;
+    settings.keyboard.layout = "de";
+    cursorTheme = {
+      package = pkgs.catppuccin-cursors.frappeBlue;
+      name = "catppuccin-frappe-blue-cursors";
     };
   };
+
+  hardware.bluetooth.enable = true;
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
+
+  environment.etc."nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json".text =
+    builtins.toJSON {
+      rules = [
+        {
+          pattern = {
+            feature = "procname";
+            matches = "niri";
+          };
+          profile = "Limit Free Buffer Pool On Wayland Compositors";
+        }
+      ];
+      profiles = [
+        {
+          name = "Limit Free Buffer Pool On Wayland Compositors";
+          settings = [
+            {
+              key = "GLVidHeapReuseRatio";
+              value = 0;
+            }
+          ];
+        }
+      ];
+    };
 
   xdg.portal = {
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-    ];
-    config.common.default = [
-      "hyprland"
-      "gtk"
     ];
   };
 

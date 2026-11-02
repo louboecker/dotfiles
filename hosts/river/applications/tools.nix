@@ -6,7 +6,6 @@
 
   environment.systemPackages = with pkgs; [
     pulsemeeter
-    nextcloud-client
     scrcpy
     xdg-utils 
     qpwgraph
@@ -22,7 +21,7 @@
     mtr
     openrgb
     pixelorama
-    penpot-desktop
+    # penpot-desktop
 
     openconnect
 
@@ -33,6 +32,7 @@
       karp
       kdenlive
       glaxnimate
+      dolphin
   ]);
 
   programs.kdeconnect.enable = true;

@@ -1,0 +1,64 @@
+// Overrides on top of niri's default binds (Mod+Shift+ß shows them all).
+binds {
+    // the default Mod+Shift+Slash isn't reachable on a German layout
+    Mod+Shift+Ssharp { show-hotkey-overlay; }
+
+    // apps
+    Mod+T hotkey-overlay-title="Terminal" { spawn "kitty"; }
+    Mod+Return { spawn "kitty"; }
+
+    // noctalia (replaces fuzzel, swaylock, wpctl/playerctl/brightnessctl)
+    Mod+Space hotkey-overlay-title="Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+D hotkey-overlay-title="Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+S hotkey-overlay-title="Control center" { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Alt+V hotkey-overlay-title="Clipboard" { spawn-sh "noctalia msg panel-toggle clipboard"; }
+    Mod+X hotkey-overlay-title="Session menu" { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+Shift+Comma hotkey-overlay-title="Noctalia settings" { spawn-sh "noctalia msg settings-toggle"; }
+    Super+Alt+L hotkey-overlay-title="Lock" { spawn-sh "noctalia msg session lock"; }
+    Alt+Tab { spawn-sh "noctalia msg window-switcher hold"; }
+    Alt+Shift+Tab { spawn-sh "noctalia msg window-switcher hold reverse"; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioMicMute allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
+    XF86AudioPlay allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+    XF86AudioStop allow-when-locked=true { spawn-sh "noctalia msg media stop"; }
+    XF86AudioPrev allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+    XF86AudioNext allow-when-locked=true { spawn-sh "noctalia msg media next"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
+
+    Mod+Ctrl+1 { move-window-to-workspace 1; }
+    Mod+Ctrl+2 { move-window-to-workspace 2; }
+    Mod+Ctrl+3 { move-window-to-workspace 3; }
+    Mod+Ctrl+4 { move-window-to-workspace 4; }
+    Mod+Ctrl+5 { move-window-to-workspace 5; }
+    Mod+Ctrl+6 { move-window-to-workspace 6; }
+    Mod+Ctrl+7 { move-window-to-workspace 7; }
+    Mod+Ctrl+8 { move-window-to-workspace 8; }
+    Mod+Ctrl+9 { move-window-to-workspace 9; }
+    Mod+Ctrl+Shift+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+Shift+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+Shift+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+Shift+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+Shift+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+Shift+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+Shift+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+Shift+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+Shift+9 { move-column-to-workspace 9; }
+    Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-window-to-workspace-up; }
+    Mod+Ctrl+U         { move-window-to-workspace-down; }
+    Mod+Ctrl+I         { move-window-to-workspace-up; }
+
+    // Switch a window between stacked in its column and its own column beside
+    // it. (The default Mod+BracketLeft/Right need AltGr on a German layout.)
+    Mod+Udiaeresis       { consume-or-expel-window-left; }
+    Mod+Shift+Udiaeresis { consume-or-expel-window-right; }
+
+    // the default Mod+Equal is Shift+0 on a German layout
+    Mod+Plus       { set-column-width "+10%"; }
+    Mod+Shift+Plus { set-window-height "+10%"; }
+}
