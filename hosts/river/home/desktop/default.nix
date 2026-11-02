@@ -2,7 +2,7 @@
 {
   imports = [
     ./niri
-    ./noctalia.nix
+    ./dux-shell.nix
   ];
 
   home.pointerCursor = {

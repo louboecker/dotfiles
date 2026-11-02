@@ -1,5 +1,13 @@
 include "default-config.kdl"
 
+// generated at runtime by dux shell from its settings
+include optional=true "dms/colors.kdl"
+include optional=true "dms/layout.kdl"
+include optional=true "dms/alttab.kdl"
+include optional=true "dms/cursor.kdl"
+include optional=true "dms/binds-next.kdl"
+include optional=true "dms/binds.kdl"
+
 include "input.kdl"
 include "outputs.kdl"
 include "layout.kdl"
@@ -12,12 +20,15 @@ hotkey-overlay {
     skip-at-startup
 }
 
+environment {
+    XDG_CURRENT_DESKTOP "niri"
+}
+
 cursor {
     xcursor-theme "catppuccin-frappe-blue-cursors"
     xcursor-size 24
 }
 
 debug {
-    // lets noctalia activate windows from notification actions
     honor-xdg-activation-with-invalid-serial
 }

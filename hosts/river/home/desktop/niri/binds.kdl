@@ -7,28 +7,38 @@ binds {
     Mod+T hotkey-overlay-title="Terminal" { spawn "kitty"; }
     Mod+Return { spawn "kitty"; }
 
-    // noctalia (replaces fuzzel, swaylock, wpctl/playerctl/brightnessctl)
-    Mod+Space hotkey-overlay-title="Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
-    Mod+D hotkey-overlay-title="Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
-    Mod+S hotkey-overlay-title="Control center" { spawn-sh "noctalia msg panel-toggle control-center"; }
-    Mod+Alt+V hotkey-overlay-title="Clipboard" { spawn-sh "noctalia msg panel-toggle clipboard"; }
-    Mod+X hotkey-overlay-title="Session menu" { spawn-sh "noctalia msg panel-toggle session"; }
-    Mod+Shift+Comma hotkey-overlay-title="Noctalia settings" { spawn-sh "noctalia msg settings-toggle"; }
-    Super+Alt+L hotkey-overlay-title="Lock" { spawn-sh "noctalia msg session lock"; }
-    Alt+Tab { spawn-sh "noctalia msg window-switcher hold"; }
-    Alt+Shift+Tab { spawn-sh "noctalia msg window-switcher hold reverse"; }
+    // dux shell (replaces fuzzel, swaylock, wpctl/playerctl/brightnessctl)
+    Mod+Space hotkey-overlay-title="Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Alt+Space hotkey-overlay-title="Spotlight bar" { spawn "dms" "ipc" "call" "spotlight-bar" "toggle"; }
+    Mod+D hotkey-overlay-title="Dash" { spawn "dms" "ipc" "call" "dash" "toggle" ""; }
+    Mod+Y hotkey-overlay-title="Wallpapers" { spawn "dms" "ipc" "call" "dash" "toggle" "wallpaper"; }
+    Mod+A hotkey-overlay-title="Control center" { spawn "dms" "ipc" "call" "control-center" "toggle"; }
+    Mod+Alt+V hotkey-overlay-title="Clipboard" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+    Mod+Ctrl+N hotkey-overlay-title="Notifications" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+X hotkey-overlay-title="Power menu" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+    Mod+Shift+Comma hotkey-overlay-title="Dux settings" { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
+    Mod+Shift+C hotkey-overlay-title="Color picker" { spawn "dms" "ipc" "call" "color-picker" "toggle"; }
+    Mod+Alt+N hotkey-overlay-title="Night mode" { spawn "dms" "ipc" "call" "night" "toggle"; }
+    Mod+Alt+I hotkey-overlay-title="Idle inhibit" { spawn "dms" "ipc" "call" "inhibit" "toggle"; }
+    Super+Alt+L hotkey-overlay-title="Lock" { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Ctrl+Alt+Delete hotkey-overlay-title="Task manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
-    XF86AudioMute allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
-    XF86AudioMicMute allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
-    XF86AudioPlay allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
-    XF86AudioPause allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
-    XF86AudioStop allow-when-locked=true { spawn-sh "noctalia msg media stop"; }
-    XF86AudioPrev allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
-    XF86AudioNext allow-when-locked=true { spawn-sh "noctalia msg media next"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
+    XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+    XF86AudioMicMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
+    XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioPause allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioStop allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "stop"; }
+    XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
+    XF86AudioNext allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
+
+    Print hotkey-overlay-title="Screenshot: region" { spawn "dms" "screenshot"; }
+    Ctrl+Print hotkey-overlay-title="Screenshot: screen" { spawn "dms" "screenshot" "full"; }
+    Alt+Print hotkey-overlay-title="Screenshot: window" { spawn "dms" "screenshot" "window"; }
 
     Mod+Ctrl+1 { move-window-to-workspace 1; }
     Mod+Ctrl+2 { move-window-to-workspace 2; }

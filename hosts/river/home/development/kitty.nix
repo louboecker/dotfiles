@@ -36,7 +36,8 @@
     };
 
     extraConfig = ''
-      include themes/noctalia.conf
+      include dank-tabs.conf
+      include dank-theme.conf
     '';
   };
 }

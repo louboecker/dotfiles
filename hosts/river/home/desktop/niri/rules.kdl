@@ -3,14 +3,6 @@ window-rule {
     clip-to-geometry true
 }
 
-// noctalia settings window
-window-rule {
-    match app-id="dev.noctalia.Noctalia"
-    open-floating true
-    default-column-width { fixed 1080; }
-    default-window-height { fixed 920; }
-}
-
 window-rule {
     match app-id=r#"^org\.gnome\.Calculator$"#
     match app-id="^gnome-calculator$"
@@ -29,8 +21,8 @@ window-rule {
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
-// blurred noctalia wallpaper inside the overview backdrop
+// dux shell's wallpaper stays visible in the overview
 layer-rule {
-    match namespace="^noctalia-backdrop"
+    match namespace="^quickshell$"
     place-within-backdrop true
 }

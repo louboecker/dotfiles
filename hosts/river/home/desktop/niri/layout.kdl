@@ -1,11 +1,20 @@
 layout {
     gaps 10
 
+    // show dux shell's wallpaper behind workspaces and in the overview
+    background-color "transparent"
+
     focus-ring {
         width 1
     }
 
     shadow {
         on
+    }
+}
+
+overview {
+    workspace-shadow {
+        off
     }
 }

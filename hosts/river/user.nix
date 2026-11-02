@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, dux-shell, dms-plugin-registry, ...}: {
   users.users.lou = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -15,6 +15,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "hm-backup";
+    extraSpecialArgs = { inherit dux-shell dms-plugin-registry; };
     users.lou = import ./home;
   };
 }
