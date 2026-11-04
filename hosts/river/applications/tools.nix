@@ -54,4 +54,10 @@
       glfw3-minecraft
     ];
   };  
+
+  services.sunshine = {
+    enable = true;
+
+    autoStart = true;
+  };
 }
