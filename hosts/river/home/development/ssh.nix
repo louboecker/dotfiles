@@ -5,6 +5,9 @@
     enableDefaultConfig = false;
 
     settings = {
+      "*" = {
+        AddKeysToAgent = "yes";
+      };
       july = {
         HostName = "july.boecker.dev";
         User = "emma";

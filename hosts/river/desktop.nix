@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   programs.niri.enable = true;
 
-  services.gnome.gcr-ssh-agent.enable = false;
+  services.gnome.gcr-ssh-agent.enable = true; 
 
   services.displayManager.dux-greeter = {
     enable = true;
