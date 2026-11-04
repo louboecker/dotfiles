@@ -61,5 +61,6 @@
 
   systemd.user.targets.graphical-session = {
     wants = [ "xdg-desktop-autostart.target" ];
+    before = [ "xdg-desktop-autostart.target" ];
   };
 }
