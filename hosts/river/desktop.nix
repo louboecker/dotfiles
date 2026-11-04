@@ -15,6 +15,10 @@
                 }
             }
         }
+
+        hotkey-overlay {
+            skip-at-startup
+        }
       '';
     };
     configHome = "/home/lou";
