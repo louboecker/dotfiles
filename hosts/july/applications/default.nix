@@ -19,6 +19,7 @@
     ./rmbg-server.nix
     
     ./reposilite.nix
+    ./forgejo.nix
 
     ./streaming
 
