@@ -73,4 +73,6 @@ in {
 
   "secrets/penpot/secret-key.age".publicKeys = allKeys;
   "secrets/penpot/mail-config.age".publicKeys = allKeys;
+
+  "secrets/basicauth.age".publicKeys = allKeys;
 }
