@@ -108,7 +108,7 @@
                 copyparty.overlays.default
               ];
             };
-            june = import nixpkgs {
+            june = import nixpkgs-unstable {
               inherit system;
               overlays = [
               ];
