@@ -15,7 +15,6 @@
     
     ./files
     ./railboard-api.nix
-    ./bvb-alert.nix
     ./daniel-bd-puzzle.nix
     ./rmbg-server.nix
     

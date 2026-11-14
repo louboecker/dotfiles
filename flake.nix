@@ -41,10 +41,6 @@
       url = "github:cherrycave/bingo-rp-gen";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    bvb-alert = {
-      url = "github:louboecker/bvb-alert";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
     daniel-bd-puzzle = {
       url = "git+https://git.boecker.dev/lou/daniel-bd-puzzle?ref=main";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -181,6 +177,7 @@
             targetUser = "lou";
             targetHost = "192.168.178.25";
             targetPort = 22;
+            buildOnTarget = false;
             allowLocalDeployment = true;
           };
         };
